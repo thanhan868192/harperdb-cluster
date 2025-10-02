@@ -1,0 +1,10 @@
+# Ignore node_modules
+node_modules/
+
+# Ignore HarperDB data only
+harperdb-cluster/node1/data/
+harperdb-cluster/node2/data/
+harperdb-cluster/node3/data/
+
+# Logs
+*.log

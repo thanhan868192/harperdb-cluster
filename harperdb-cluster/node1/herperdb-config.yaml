@@ -1,0 +1,14 @@
+name: node1
+host: 0.0.0.0
+port: 9925
+admin_username: HDB_ADMIN
+admin_password: admin123
+rootpath: /opt/harperdb/hdb
+
+replication:
+  leader: true
+  routes:
+    - hostname: hdb-node2
+      port: 9927
+    - hostname: hdb-node3
+      port: 9929

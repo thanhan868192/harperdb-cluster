@@ -1,0 +1,41 @@
+version: "3.8"
+services:
+  node1:
+    image: harperdb/harperdb
+    container_name: hdb-node1
+    ports:
+      - "9925:9925" # API & Replication
+      - "9926:9926" # Web Studio
+    volumes:
+      - ./node1/harperdb-config.yaml:/opt/harperdb/harperdb-config.yaml
+      - ./node1/data:/opt/harperdb/hdb
+    command: >
+      harperdb run -c /opt/harperdb/harperdb-config.yaml
+
+  node2:
+    image: harperdb/harperdb
+    container_name: hdb-node2
+    ports:
+      - "9927:9925"
+      - "9928:9926"
+    volumes:
+      - ./node2/harperdb-config.yaml:/opt/harperdb/harperdb-config.yaml
+      - ./node2/data:/opt/harperdb/hdb
+    command: >
+      harperdb run -c /opt/harperdb/harperdb-config.yaml
+
+  node3:
+    image: harperdb/harperdb
+    container_name: hdb-node3
+    ports:
+      - "9929:9925"
+      - "9930:9926"
+    volumes:
+      - ./node3/harperdb-config.yaml:/opt/harperdb/harperdb-config.yaml
+      - ./node3/data:/opt/harperdb/hdb
+    command: >
+      harperdb run -c /opt/harperdb/harperdb-config.yaml
+
+networks:
+  default:
+    name: hdb-net
