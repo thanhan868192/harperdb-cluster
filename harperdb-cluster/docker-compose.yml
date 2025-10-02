@@ -3,6 +3,9 @@ services:
   node1:
     image: harperdb/harperdb
     container_name: hdb-node1
+    environment:
+      - HDB_ADMIN=HDB_ADMIN
+      - HDB_PASSWORD=admin123
     ports:
       - "9925:9925" # API & Replication
       - "9926:9926" # Web Studio
@@ -15,6 +18,9 @@ services:
   node2:
     image: harperdb/harperdb
     container_name: hdb-node2
+    environment:
+      - HDB_ADMIN=HDB_ADMIN
+      - HDB_PASSWORD=admin123
     ports:
       - "9927:9925"
       - "9928:9926"
@@ -27,6 +33,9 @@ services:
   node3:
     image: harperdb/harperdb
     container_name: hdb-node3
+    environment:
+      - HDB_ADMIN=HDB_ADMIN
+      - HDB_PASSWORD=admin123
     ports:
       - "9929:9925"
       - "9930:9926"
